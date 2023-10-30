@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.MainPage">
+
+    <Grid HeightRequest="150" VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0" x:Name="listView" ItemsSource="{Binding Layers}" SelectionMode="Single" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start"
+                    VerticalScrollBarVisibility="Always"
+                    WidthRequest="280" HeightRequest="80">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <StackLayout Orientation="Horizontal"  Padding="8,8" >
+                            <Label Text="{Binding Name}" HorizontalTextAlignment="Center" WidthRequest="120"/>
+                            <Label Text="{Binding Description}" HorizontalTextAlignment="Center" WidthRequest="120" />
+                        </StackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="1" HorizontalOptions="Center" Text="Does Nothing" />
+    </Grid>
+
+</ContentPage>
